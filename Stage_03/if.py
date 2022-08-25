@@ -52,6 +52,7 @@ else:
     print('False')
     print()
 
+## 응용 ##
 # Python의 조건부 표현식
 
 score =70
