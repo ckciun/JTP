@@ -82,10 +82,11 @@ import re
 
 # p1 = re.compile('a.b')
 # p1 = re.compile('[a-z]')
-p1 = re.compile("^python\s\w+")
-    ## ^ == ^뒤에 있는 문자가 시작문자.
-    ## \s == 공백.
-    ## \w == word
+# p1 = re.compile("^python\s\w+")
+#     ## ^ == ^뒤에 있는 문자가 시작문자.
+#     ## \s == 공백.
+#     ## \w == word
+# p1 = re.compile(r'&[#](0[0-7])+|[0-9]+|X[0-9a-fA-F]+);')
 
 #     ## DOTALL, S
 #     ## \n이 포함되어 있어도 결과 출력
@@ -98,8 +99,8 @@ p1 = re.compile("^python\s\w+")
 # print(m1)
 # print(m2)
 
-    ## IGNORECASE, I
-    ## 대소문자를 무시하고 출력
+#     ## IGNORECASE, I
+#     ## 대소문자를 무시하고 출력
 
 # p2 = re.compile('[a-z]', re.I)
 # print(p1.match('python'))
@@ -110,18 +111,30 @@ p1 = re.compile("^python\s\w+")
 # print(p2.match('Python'))
 # print(p2.match('PYTHON'))
 
-    ## MULTILINE, M
+#     ## MULTILINE, M
+#     ## 동일한 조건이 존재한다면 첫 번째만 출력하지 않고 모두 출력.
 
-data = """
-python one
-lift is too short
-python two
-you need python
-python three
-hello python world
-"""
+# p2 = re.compile("^python\s\w+", re.M)
 
-print(p1.findall(data))
+# data = """python one
+# lift is too short
+# python two
+# you need python
+# python three
+# hello python world"""
 
-    ## VERBOSE, X
+# print(p1.findall(data))
+# print(p2.findall(data))
 
+#     ## VERBOSE, X
+#     ## 정규표현식의 길이가 길 때, 나눠서 표현.
+    
+# p2 = re.compile(r"""
+# &[#]                # Start of a numberic entiry reference
+# (
+#     0[0-7])+        # Octal from
+#     |[0-9]+         # Decimal from
+#     |X[0-9a-fA-F]+  # Hexadecimal from
+# )
+# ;                   # Trailing semicolon
+# """, re.X)
