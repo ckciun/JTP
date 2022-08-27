@@ -36,3 +36,92 @@
     ## 'abc'는 'b'가 1번 사용되어 매치
     ## 'ac'는 'b'가 0번 사용되어 매치
 
+## Match
+
+import re
+
+# p = re.compile('[a-z]+')
+# m1 = p.match('python')
+# m2 = p.match('1234 python')
+# print(m1)
+# print(m2)
+# print()
+
+# ## Match Method
+#     ## .group() == 매치된 문자열을 리턴한다.
+#     ## .start() == 매치된 문자열의 시작 위치를 리턴한다.
+#     ## .end() == 매치된 문자열의 끝 위치를 리턴한다.
+#     ## .span() == 매치된 문자열의 (시작,끝)에 해당되는 튜플을 리턴한다.
+    
+# print(m1.group())
+# print(m1.start())
+# print(m1.end())
+# print(m1.span())
+# print()
+
+# ## Search
+
+# s1 = p.search('python')
+# s2 = p.search('1234 python')
+# print(s1)
+# print(s2)
+# print()
+
+# ## FIndall
+
+# f1 = p.findall('lift is too short')
+# print(f1)
+
+# ## Finditer
+
+# f2 = p.finditer('lift is too short')
+# for r in f2:
+#     print(r)
+
+## Compile Option
+
+# p1 = re.compile('a.b')
+# p1 = re.compile('[a-z]')
+p1 = re.compile("^python\s\w+")
+    ## ^ == ^뒤에 있는 문자가 시작문자.
+    ## \s == 공백.
+    ## \w == word
+
+#     ## DOTALL, S
+#     ## \n이 포함되어 있어도 결과 출력
+
+# p2 = re.compile('a.b', re.DOTALL)
+#     ## OR p2 = re.compile('a.b', re.S)
+# m1 = p1.match('a\nb')
+# m2 = p2.match('a\nb')
+
+# print(m1)
+# print(m2)
+
+    ## IGNORECASE, I
+    ## 대소문자를 무시하고 출력
+
+# p2 = re.compile('[a-z]', re.I)
+# print(p1.match('python'))
+# print(p1.match('Python'))
+# print(p1.match('PYTHON'))
+# print()
+# print(p2.match('python'))
+# print(p2.match('Python'))
+# print(p2.match('PYTHON'))
+
+    ## MULTILINE, M
+
+data = """
+python one
+lift is too short
+python two
+you need python
+python three
+hello python world
+"""
+
+print(p1.findall(data))
+
+    ## VERBOSE, X
+
